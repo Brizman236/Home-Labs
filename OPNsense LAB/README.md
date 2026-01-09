@@ -69,7 +69,7 @@ Le LAB est divisé en **3 phases** :
 
 ## 🗺️ Topologie du LAB
 
-![[../Images/Pasted image 20260109084945.png]]
+![Pasted image 20260109084945](../Images/Pasted%20image%2020260109084945.png)
 
 ---
 
