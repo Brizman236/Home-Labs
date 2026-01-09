@@ -73,7 +73,7 @@ Wazuh récupère les logs depuis des postes grâce au Wazuh Agent installé sur 
 ```
 
 - À la fin de l'installation, nous aurons un les identifiants de connexions affichés dans la console, nous allons accéder à l'interface WEB  depuis notre navigateur et entrer les identifiants :
-		![[../Images/Pasted image 20260104124823.png]]
+		![Pasted image 20260104124823](../Images/Pasted%20image%2020260104124823.png)
 
 > **Wazuh est installé.**
 
@@ -83,10 +83,10 @@ L'agent Wazuh est un logiciel que l'on installe sur un client, et son rôle sera
 
 Avant de commencer l'installation du Wazuh-Agent, nous allons d'abord configurer une adresse IP statique à notre server avec `netplan` :
 - D'abord identifier l'interface réseau :
-		![[../Images/Pasted image 20260104125501.png]]
+		![Pasted image 20260104125501](../Images/Pasted%20image%2020260104125501.png)
 	qui est `ens33` dans notre cas ici
 - Chercher le fichier de configuration qui est dans `/etc/netplan` :
-	   ![[../Images/Pasted image 20260104125705.png]]
+	   ![Pasted image 20260104125705](../Images/Pasted%20image%2020260104125705.png)
 -    Faire cette configuration
 ```yaml
 		network:
@@ -106,20 +106,20 @@ Avant de commencer l'installation du Wazuh-Agent, nous allons d'abord configurer
 
 Maintenant nous pouvons déployer notre agent :
 - Depuis l'accueil cliquer sur le bouton *Deploy new agent*
-		![[../Images/Pasted image 20260104130622.png]]
+		![Pasted image 20260104130622](../Images/Pasted%20image%2020260104130622.png)
 		
 
 - Cocher le système Windows, entrer l'adresse IP du server puis nommer l'Agent 
-		![[../Images/Pasted image 20260104130905.png]]
+		![Pasted image 20260104130905](../Images/Pasted%20image%2020260104130905.png)
 - Copier la première commande et la coller dans PowerShell (En mode Administrateur) sur le client Windows
-		![[../Images/Pasted image 20260104171312.png]]
+		![Pasted image 20260104171312](../Images/Pasted%20image%2020260104171312.png)
 		
 - Puis la deuxieme commande
-		![[../Images/Pasted image 20260104171250.png]]
+		![Pasted image 20260104171250](../Images/Pasted%20image%2020260104171250.png)
 
 De retour sur la liste des agents sur l'interface WEB, on remarquera notre agent **Windows10** 👇 
 
-![[../Images/Pasted image 20260104171525.png]]
+![Pasted image 20260104171525](../Images/Pasted%20image%2020260104171525.png)
 
 ___
 
@@ -129,16 +129,16 @@ ___
 
 Suivons ces étapes pour l'installation et l'intégration:
 - Aller sur la documentation officielle de **Sysmon**  https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon puis télécharger **Sysmon** :
-		![[../Images/Pasted image 20260105005647.png]]
+		![Pasted image 20260105005647](../Images/Pasted%20image%2020260105005647.png)
 - Extraire le fichier ZIP
-		![[../Images/Pasted image 20260105010137.png]]
+		![Pasted image 20260105010137](../Images/Pasted%20image%2020260105010137.png)
 - Acceder au fichier depuis PowerShell (en mode Administrateur) puis installons Sysmon
-	![[../Images/Pasted image 20260105010815.png]]
+	![Pasted image 20260105010815](../Images/Pasted%20image%2020260105010815.png)
 > Sysmon a bien été installé
 
 Ouvrons l'**Observateur des évènements** pour vérifier si les logs **Sysmon** sont présents. 
 En général, on le trouve dans *Journaux des applications et des services > Microsoft > Windows > Sysmon > Operational* 
-![[../Images/Pasted image 20260105014751.png]]
+![Pasted image 20260105014751](../Images/Pasted%20image%2020260105014751.png)
 
 **Intégration des Logs Sysmon à Wazuh**
 
@@ -151,7 +151,7 @@ Pour que nous puissons avoir les logs depuis notre interface Wazuh, nous devons 
 </localfile>
 ```
 
-![[../Images/Pasted image 20260105020011.png]]
+![Pasted image 20260105020011](../Images/Pasted%20image%2020260105020011.png)
 
 Cette configuration permettra à l'agent de " s'abonner " au journal de logs Windows, et plus précisément à celui de **Sysmon** grâce aux **APIs Windows** (`EvtSubscribe` et `EvtQuery`). Le format  `eventchannel` sert à spécifier que ce seront des logs provenant de Canal d'évènement Windows, ce qui facilitera le décodage et le parsing.
 
@@ -163,11 +163,11 @@ Restart-Service -Name WazuhSvc
 
 Pour vérifier si Wazuh Server a bien reçu les logs provenant de sysmon, nous devons nous rendre sur *Explore > Discover* et appliquer le filtre :
 
-![[../Images/Pasted image 20260106072211.png]]
+![Pasted image 20260106072211](../Images/Pasted%20image%2020260106072211.png)
 
 Nous aurons alors les logs fournis par **Sysmon** :
 
-![[../Images/Pasted image 20260106072303.png]]
+![Pasted image 20260106072303](../Images/Pasted%20image%2020260106072303.png)
 
 ___
 
@@ -199,7 +199,7 @@ $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder" = "C:\Atom
 
 Dans la majorité des cas, nous aurons une erreur concernant l'**Execution Policy** qui bloque l'execution de script :
 
-![[../Images/Pasted image 20260106075206.png]]
+![Pasted image 20260106075206](../Images/Pasted%20image%2020260106075206.png)
 
 De ce fait, nous allons changer l'**Execution Policy** pour que notre profil soit chargé (à le faire dans un environnement contrôlé) :
 
@@ -209,7 +209,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 
 Après le relancement de PowerShell, notre profil se charge avec succès :
 
-![[../Images/Pasted image 20260106075925.png]]
+![Pasted image 20260106075925](../Images/Pasted%20image%2020260106075925.png)
 
 Vérifions maintenant avec :
 
@@ -217,7 +217,7 @@ Vérifions maintenant avec :
 Invoke-AtomicTest T1003 -ShowDetailsBrief
 ```
 
-![[../Images/Pasted image 20260106092840.png]]
+![Pasted image 20260106092840](../Images/Pasted%20image%2020260106092840.png)
 
 La phase 1 a été valider :
 - Wazuh et Wazuh Agent installés et fonctionels
@@ -249,16 +249,16 @@ Lançons le test avec :
 Invoke-AtomicTest T1059.003 -TestNumbers 3
 ```
 
-![[../Images/Pasted image 20260107093443.png]]
+![Pasted image 20260107093443](../Images/Pasted%20image%2020260107093443.png)
 
 **Analyse côté SOC**
 - Sur **Discover**, nous observons un pic à **9h30** , cliquons sur ce pic:
-	![[../Images/Pasted image 20260107093726.png]]
-	![[../Images/Pasted image 20260107094203.png]]
+	![Pasted image 20260107093726](../Images/Pasted%20image%2020260107093726.png)
+	![Pasted image 20260107094203](../Images/Pasted%20image%2020260107094203.png)
 	
 - Nous remarquons là qu'aux alentours de 9h30, nous avons reçu des alertes concernant une exécution de commande
 
-![[../Images/Pasted image 20260108231545.png]]
+![Pasted image 20260108231545](../Images/Pasted%20image%2020260108231545.png)
 
 En analysant, l'alerte en détail nous observons :
 - Processus parent : `cmd.exe`, c'est un processus légitime
@@ -269,7 +269,7 @@ En analysant, l'alerte en détail nous observons :
 
 Nous remarquons aussi que Wazuh a effectivement corrélé l'évènement en se basant sur le framework **MITRE ATT&CK** :
 
-![[../Images/Pasted image 20260108230358.png]]
+![Pasted image 20260108230358](../Images/Pasted%20image%2020260108230358.png)
 
 
 En résumé, une commande `cmd.exe` a été exécutée de manière non intéractive avec une obfuscation simple de l'interpréteur et dans un dossier inhabituel. Le comportement est compatible avec une exécution automatisée malveillante. L'impact est **limité**, il n'y a pas eu de **persistance** ni d'**élévation**. Le processus fut légitime mais pas son comportement.

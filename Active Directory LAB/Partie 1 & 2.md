@@ -16,7 +16,7 @@ ___
 
 Voici la topologie que nous allons implémenter dans ce document :
 
-![[../Images/WhatsApp Image 2025-12-04 at 16.16.28.jpeg]]
+![WhatsApp Image 2025-12-04 at 16.16.28](../Images/WhatsApp%20Image%202025-12-04%20at%2016.16.28.jpeg)
 
 
 ___
@@ -37,7 +37,7 @@ On installera un Windows Server 2022 dans VMWare avec les configs suivantes :
 - 60Go de stockage
 Nommons-le DC1 :
 
-![[../Images/Pasted image 20251128134613.png]]
+![Pasted image 20251128134613](../Images/Pasted%20image%2020251128134613.png)
 
 ___
 ## Etape 2 : Installation de l'ADDS
@@ -49,7 +49,7 @@ Add-WindowsFeature Ad-Domain-Services
 Install-ADDSForest -DomainName "cyber.lab"
 ```
 
-![[../Images/Pasted image 20251128141938.png]]
+![Pasted image 20251128141938](../Images/Pasted%20image%2020251128141938.png)
 
 ___
 ## Etape 3 : Création de la structure des OU
@@ -86,15 +86,15 @@ ___
 
 Pour ajouter la machine cliente `WIN10-CLIENT` , il nous d'abord configurer son DNS. Regardons la configuration de la carte réseau du DC :
 
-![[../Images/Pasted image 20251128211534.png]]
+![Pasted image 20251128211534](../Images/Pasted%20image%2020251128211534.png)
 
 Nous allons maintenant l'utiliser comme serveur DNS sur `WIN10-CLIENT` :
 
-![[../Images/Pasted image 20251128211702.png]]
+![Pasted image 20251128211702](../Images/Pasted%20image%2020251128211702.png)
 
 Vérifions si le DNS marche avec `nslookup cyber.lab` :
 
-![[../Images/Pasted image 20251128212012.png]]
+![Pasted image 20251128212012](../Images/Pasted%20image%2020251128212012.png)
 
 Nous allons maintenant ajouter le compte de la machine au domaine :
 
@@ -105,17 +105,17 @@ New-ADComputer -Name "WIN10-CLIENT" -Path "OU=COMPUTERS,OU=CYBER_LAB,DC=cyber,DC
 
 Sur ma machine allons dans *Paramètres > Système > Paramètres avancéés du système > Nom de l'ordinateur > Modifier...* :
 
-![[../Images/Pasted image 20251128220655.png]]
+![Pasted image 20251128220655](../Images/Pasted%20image%2020251128220655.png)
 
 En cliquant sur OK on nous demande d'entrer les identifiants d'un compte autorisé à joindre le domaine, dans notre cas ici c'est `Administrateur`.
 
-![[../Images/Pasted image 20251128220827 1.png]]
+![Pasted image 20251128220827 1](../Images/Pasted%20image%2020251128220827%201.png)
 
 Vérifions l'intégration en nous connectant en tant que `alice` :
 
-![[../Images/Pasted image 20251128222027.png]]
+![Pasted image 20251128222027](../Images/Pasted%20image%2020251128222027.png)
 
-![[../Images/Pasted image 20251128222320.png]]
+![Pasted image 20251128222320](../Images/Pasted%20image%2020251128222320.png)
 
 ___
 
@@ -123,8 +123,8 @@ ___
 
 ## 1. Enumération des deux hôtes
 
-![[../Images/Pasted image 20251203194942.png]]
-![[../Images/Pasted image 20251203195206.png]]
+![Pasted image 20251203194942](../Images/Pasted%20image%2020251203194942.png)
+![Pasted image 20251203195206](../Images/Pasted%20image%2020251203195206.png)
 
 Domaine Active Directory trouvé : `cyber.lab`.
 
@@ -133,26 +133,26 @@ ___
 
 #### NetExec avec une session nul et le compte 'Invité'
 
-![[../Images/Pasted image 20251203200207.png]]
+![Pasted image 20251203200207](../Images/Pasted%20image%2020251203200207.png)
 
 - Le compte `Invité` est désactivé par défaut
 - L'énumération n'est pas possible avec la session nulle
 
 #### Kerbrute : brute-force des utilisateurs
 
-![[../Images/Pasted image 20251203194435.png]]
+![Pasted image 20251203194435](../Images/Pasted%20image%2020251203194435.png)
 
 2 utilisateurs ont été trouvé. On peut tenter du ASREP-Roasting.
 
 #### ASREP-Roasting avec les utilisateurs trouvés
 
-![[../Images/Pasted image 20251203200649.png]]
+![Pasted image 20251203200649](../Images/Pasted%20image%2020251203200649.png)
 
 La préauthentification est désactivé par défaut.
 
 #### Kerbrute : brute-force du mot de passe d'un utilisateur 
 
-![[../Images/Pasted image 20251203201823.png]]
+![Pasted image 20251203201823](../Images/Pasted%20image%2020251203201823.png)
 
 Mot de passe d'alice trouvé : `love@123`.
 
@@ -162,11 +162,11 @@ ___
 
 #### Password Spraying avec le mot de passe d'alice
 
-![[../Images/Pasted image 20251203202211.png]]
+![Pasted image 20251203202211](../Images/Pasted%20image%2020251203202211.png)
 
 L'Admnistrateur a le même mot de passe. Prenons l'accès au DC avec Evil-WinRM :
 
-![[../Images/Pasted image 20251203202415.png]]
+![Pasted image 20251203202415](../Images/Pasted%20image%2020251203202415.png)
 
 Compromission totale !
 
