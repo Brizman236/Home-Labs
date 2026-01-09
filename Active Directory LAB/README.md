@@ -42,7 +42,7 @@ L’objectif principal est de comprendre **comment un domaine AD est configuré,
 ## 🗺️ Topologie du LAB
 
 
-![[WhatsApp Image 2025-12-04 at 16.16.28.jpeg]]
+![[../Images/WhatsApp Image 2025-12-04 at 16.16.28.jpeg]]
 
 ---
 

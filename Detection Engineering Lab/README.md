@@ -42,7 +42,7 @@ L’objectif principal est de mettre en place une **pipeline de détection fonct
 ## 🗺️ Topologie du LAB
 
 
-![[Pasted image 20260109085420.png]]
+![[../Images/Pasted image 20260109085420.png]]
 ---
 
 ## 🧱 Phase 1 – Validation de l’environnement
