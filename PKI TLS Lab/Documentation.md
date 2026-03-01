@@ -24,7 +24,7 @@ ___
 
 ## Topologie
 
-![[ChatGPT Image Feb 28, 2026, 07_49_39 AM.png]]
+![ChatGPT Image Feb 28, 2026, 07_49_39 AM](../../ChatGPT%20Image%20Feb%2028,%202026,%2007_49_39%20AM.png)
 
 
 ___
@@ -70,7 +70,7 @@ openssl genrsa -aes256 -out ~/pki/root/private/root.key 4096
 openssl req -x509 -new -key ~/pki/root/private/root.key -sha256 -days 7300 -out ~/pki/root/certs/root.crt
 ```
 
-![[Pasted image 20260228092648.png]]
+![Pasted image 20260228092648](../Images/Pasted%20image%2020260228092648.png)
 
 ___
 
@@ -143,8 +143,8 @@ openssl x509 -req \
 ```
 
 
-![[Pasted image 20260301012604.png]]
-![[Pasted image 20260301012621.png]]
+![Pasted image 20260301012604](../Images/Pasted%20image%2020260301012604.png)
+![Pasted image 20260301012621](../Images/Pasted%20image%2020260301012621.png)
 
 
 ___
@@ -200,7 +200,7 @@ Nous allons copier le **CSR** sur le **CA** vie `scp` :
 scp webserver.csr ca1@ca1.cyber.lab:~/
 ```
 
-![[Pasted image 20260228105715.png]]
+![Pasted image 20260228105715](../Images/Pasted%20image%2020260228105715.png)
 
 Comme précédement pour l'**intermediate CA**, nous allons créer un fichier de configuration pour les extensions de certificat du serveur :
 
@@ -226,8 +226,8 @@ subjectAltName = DNS:www.cyber.lab
 openssl x509 -req -in /home/ca1/webserver.csr -CA pki/intermediate/certs/intermediate.crt -CAkey pki/intermediate/private/intermediate.key -extfile wbserveur_ext.cnf -extensions req_ext -out webserver.crt -days 730 -sha256
 ```
 
-![[Pasted image 20260301013911.png]]
-![[Pasted image 20260301013925.png]]
+![Pasted image 20260301013911](../Images/Pasted%20image%2020260301013911.png)
+![Pasted image 20260301013925](../Images/Pasted%20image%2020260301013925.png)
 
 Après la création du certificat signé du serveur web, nous allons le copier du ce dernier avec la chaîne de confiance. 
 La chaîne ce confiance sera constitué des certificat de l'Intermediate et du serveur web.
@@ -313,11 +313,11 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 
 Puis y accéder via le navigateur du client et télécharger le certificat :
 
-![[Pasted image 20260301015944.png]]
+![Pasted image 20260301015944](../Images/Pasted%20image%2020260301015944.png)
 
 La vidéo ci-dessous nous montre l'utilisation du HTTPS et la confiance au certificat du serveur par le Client. Ce qui valide notre infrastructure PKI.
 
-![[PoC_PKI.mp4]]
+![PoC_PKI](../PoC/PoC_PKI.mp4)
 
 ___
 
