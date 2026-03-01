@@ -89,15 +89,15 @@ Avant de commencer l'installation du Wazuh-Agent, nous allons d'abord configurer
 	   ![Pasted image 20260104125705](../Images/Pasted%20image%2020260104125705.png)
 -    Faire cette configuration
 ```yaml
-		network:
-		  version: 2
-		  ethernets:
-		    ens33:
-		      dhcp4: no
-		      addresses: [192.168.38.100/24]
-		      routes:
-		        - to: default
-		          via: 192.168.38.1
+network:
+  version: 2
+  ethernets:
+	ens33:
+	  dhcp4: no
+	  addresses: [192.168.38.100/24]
+	  routes:
+		- to: default
+		  via: 192.168.38.1
 ```
 
 -  Sauvegarder, quitter puis appliquer avec :  `sudo netplan apply`
