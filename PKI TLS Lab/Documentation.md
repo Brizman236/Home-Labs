@@ -323,7 +323,7 @@ Nous avions un avertissement nous disant que la **Connexion n'est pas privée**.
 
 Importons le certificat du **Root CA** dans le navigateur en allant dans **Paramètres > Confidentialité et Sécurié > Sécurité > Gérer les certificats > Installé par vous** :
 
-![Pasted image 20260301022246](..//Pasted%20image%2020260301022246.png)
+![Pasted image 20260301022246](../Images/Pasted%20image%2020260301022246.png)
 
 Revenons sur la page du serveur web et actualisons-la :
 
