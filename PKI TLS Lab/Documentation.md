@@ -317,19 +317,19 @@ Puis y accéder via le navigateur du client et télécharger le certificat :
 
 Accédons au site : `ww.cyber.lab`
 
-![Pasted image 20260301021936](../../Pasted%20image%2020260301021936.png)
+![Pasted image 20260301021936](../Images/Pasted%20image%2020260301021936.png)
 
 Nous avions un avertissement nous disant que la **Connexion n'est pas privée**. Cela est du au fait que le Client ne fait pas confiance au certificat et à la chaîne de certificat fournis par le serveur web. 
 
 Importons le certificat du **Root CA** dans le navigateur en allant dans **Paramètres > Confidentialité et Sécurié > Sécurité > Gérer les certificats > Installé par vous** :
 
-![Pasted image 20260301022246](../../Pasted%20image%2020260301022246.png)
+![Pasted image 20260301022246](..//Pasted%20image%2020260301022246.png)
 
 Revenons sur la page du serveur web et actualisons-la :
 
-![Pasted image 20260301022328](../../Pasted%20image%2020260301022328.png)
+![Pasted image 20260301022328](../Images/Pasted%20image%2020260301022328.png)
 
-![Pasted image 20260301022354](../../Pasted%20image%2020260301022354.png)
+![Pasted image 20260301022354](../Images/Pasted%20image%2020260301022354.png)
 
 Nous pouvons voir que la chaîne de confiance est vérifier et que nous n'avons plus d'avertissement.
 
