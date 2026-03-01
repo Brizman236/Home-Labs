@@ -24,7 +24,7 @@ ___
 
 ## Topologie
 
-![ChatGPT Image Feb 28, 2026, 07_49_39 AM](ChatGPT%20Image%20Feb%2028,%202026,%2007_49_39%20AM.png)
+![ChatGPT Image Feb 28, 2026, 07_49_39 AM](../Images/ChatGPT%20Image%20Feb%2028,%202026,%2007_49_39%20AM.png)
 
 
 ___
