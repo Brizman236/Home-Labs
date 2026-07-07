@@ -1,0 +1,42 @@
+# ─────────────────────────────────────────────
+# Secrets & certificats (ne jamais versionner)
+# ─────────────────────────────────────────────
+*.p12
+*.pfx
+*.pem
+*.key
+*.keystore
+*.truststore
+Passwords.txt
+**/Passwords.txt
+
+# ─────────────────────────────────────────────
+# Archives
+# ─────────────────────────────────────────────
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+labs.zip
+
+# ─────────────────────────────────────────────
+# OS / éditeurs
+# ─────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ─────────────────────────────────────────────
+# Obsidian (état local non pertinent pour Git)
+# ─────────────────────────────────────────────
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/*/data.json
+
+# ─────────────────────────────────────────────
+# Médias lourds optionnels (décommenter si besoin)
+# ─────────────────────────────────────────────
+# *.webm
+# *.mp4
