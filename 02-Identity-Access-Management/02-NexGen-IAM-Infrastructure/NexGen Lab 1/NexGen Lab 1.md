@@ -70,7 +70,7 @@ ipa-server-install --setup-dns -r NEXGEN.LAB -n nexgen.lab -p w55MZaLqQBxY6TlyuZ
 ipactl status
 ```
 
-![Pasted image 20260515224648](../../Images/Pasted%20image%2020260515224648.png)
+![Pasted image 20260515224648](../../../Images/Pasted%20image%2020260515224648.png)
 
 ___
 
@@ -131,7 +131,7 @@ ipa group-add grp-sysadmins --desc="Administrateurs du parc NexGen"
 ipa group-add grp-developpers --desc="Équipe de développement NexGen"
 ```
 
-![Pasted image 20260516090751](../../Images/Pasted%20image%2020260516090751.png)
+![Pasted image 20260516090751](../../../Images/Pasted%20image%2020260516090751.png)
 
 **Créations des utilisateurs et assignation**
 
@@ -398,14 +398,14 @@ Avant de brancher nos applications à KeyCloak, ce dernier doit d'abord connaît
 	- **UUID LDAP attribute** : `ipauniqueid`
 - Cliquer sur **Save**
 
-![Pasted image 20260525090649](../../Images/Pasted%20image%2020260525090649.png)
+![Pasted image 20260525090649](../../../Images/Pasted%20image%2020260525090649.png)
 
 La fédération LDAP est maintenant fonctionnelle. Si l'on cherche un utilsateur FreeIPA, `m-dev` par exemple dans Keycloak, nous le verrons :
-![Pasted image 20260525091314](../../Images/Pasted%20image%2020260525091314.png)
+![Pasted image 20260525091314](../../../Images/Pasted%20image%2020260525091314.png)
 Cependant, ce dernier ne nous fournit que les utilisateurs et leurs informations (nom, prénom, email, ...) et non leur **groupe**. L'absence des groupes nous empêche d'effectuer la ségrégation des privilèges entre un utilisateur standard et un administrateur sur les Applications. Pour pallier cela, il nous faut utiliser les **Mappers LDAP**, fonctionnalité servant à récupérer les groupes depuis l'annuaire et les associer avec les utilisateurs correspondants :
 - Cliquer sur **User Federation**  dans le menu gauche, puis sur le provider dernièrement ajouté, dans mon cas **FreeIPA**
 - Sur la page du Provider, cliquer sur l'onglet **Mapper** :
-	![Pasted image 20260525092519](../../Images/Pasted%20image%2020260525092519.png)
+	![Pasted image 20260525092519](../../../Images/Pasted%20image%2020260525092519.png)
 - Cliquer sur **Add Mapper**
 - Remplir le formulaire :
 	- **Name** : `freeipa-groups`
@@ -415,7 +415,7 @@ Cependant, ce dernier ne nous fournit que les utilisateurs et leurs informations
 	- Cliquer sur **Save**
 Après cela, nous pouvons voir les groupes importés en cliquant sur **Groups** dans le menu à gauche :
 
-![Pasted image 20260525101347](../../Images/Pasted%20image%2020260525101347.png)
+![Pasted image 20260525101347](../../../Images/Pasted%20image%2020260525101347.png)
 
 Notre Source d'Identité Keycloak est maintenant prêt à l'emploi.
 
@@ -450,7 +450,7 @@ Tout d'abord nous allons créer le client sur KeyCloak :
 - **Web origins** : `http://git.nexgen.lab/`
 - Cliquer sur **Save**
 - Sur la page du Client, aller dans **Creadentials** puis copier le secret :
-	![Pasted image 20260525114819](../../Images/Pasted%20image%2020260525114819.png)
+	![Pasted image 20260525114819](../../../Images/Pasted%20image%2020260525114819.png)
 
 Ensuite configurer l'utilisation d'OpenID Connect comment méthode d'authentification sur Gitea :
 - Se connecter en tant qu'Administrateur sur **Gitea**
@@ -467,7 +467,7 @@ Ensuite configurer l'utilisation d'OpenID Connect comment méthode d'authentific
 
 Si nous validons la config à ce niveau, nous aurons une erreur disant que l'autorité signataire du certificat de KeyCloak n'est pas reconnue :
 
-![Pasted image 20260525121844](../../Images/Pasted%20image%2020260525121844.png)
+![Pasted image 20260525121844](../../../Images/Pasted%20image%2020260525121844.png)
 
 Pour résoudre ce problème, nosu devons enregistrer le certificat TLS de Keycloak dans le trust store du système qui héberge Gitea.
 
@@ -484,15 +484,15 @@ docker exec -u root -it gitea /bin/bash update-ca-certificates
 
 Puis lorsque recommençons l'ajout de la source d'authentificat, il se solde par un succès.
 
-![Pasted image 20260525175639](../../Images/Pasted%20image%2020260525175639.png)
+![Pasted image 20260525175639](../../../Images/Pasted%20image%2020260525175639.png)
 En allant sur la page de connexion après s'être déconnecté, on remarque une nouvelle option de connexion : 
 
-![Pasted image 20260525183009](../../Images/Pasted%20image%2020260525183009.png)
+![Pasted image 20260525183009](../../../Images/Pasted%20image%2020260525183009.png)
 
 Testons-la avec l'utilisateur du domaine `m-dev` :
-![Pasted image 20260525183228](../../Images/Pasted%20image%2020260525183228.png)
+![Pasted image 20260525183228](../../../Images/Pasted%20image%2020260525183228.png)
 
-![test-gitea-keycloak-authentication-source](Ressources/test-gitea-keycloak-authentication-source.webm)
+![test-gitea-keycloak-authentication-source](../Ressources/PoC/test-gitea-keycloak-authentication-source.webm)
 
 Gitea peut maintenant déléguer l'authentification de ses utilisateurs à Keycloak.
 
@@ -533,5 +533,5 @@ Ensuite nous allons configurer Wiki.js afin qu'il délègue l'authentification �
 ____
 
 La vidéo ci-dessous valide les configuration :
-![sso-validated](Ressources/sso-validated.webm)
+![sso-validated](../Ressources/PoC/sso-validated.webm)
 

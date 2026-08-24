@@ -19,7 +19,7 @@ ___
 
 ## Cartographie des Flux & Architecture NexGen
 
-![Pasted image 20260601000018](../../Images/Pasted%20image%2020260601000018.png)
+![Pasted image 20260601000018](../../../Images/Pasted%20image%2020260601000018.png)
 
 ### Matrice des Droits et Accès (RBAC)
 | Utilisateur de Test | Groupe FreeIPA | Périmètre / Stockage Nextcloud         |
@@ -77,7 +77,7 @@ Dans cette étape, nous allons insérer cette information en :
 	- Cocher **Include in Token Scope**
 	- Cliquer sur **Save**
 
-	![Pasted image 20260603221010](../../Images/Pasted%20image%2020260603221010.png)
+	![Pasted image 20260603221010](../../../Images/Pasted%20image%2020260603221010.png)
 	
 ### Etape 2.2 : Configuration du Mapper
 - Sur la page du Client Scope créé, cliquer sur l'onglet **Mappers**
@@ -88,7 +88,7 @@ Dans cette étape, nous allons insérer cette information en :
 	- Token Claim Name : **groups**, c'est le nom exact de la clé Json qui sera dans le **JWT**
 	- Décocher **Full group path** afin que Keycloak n'envoie que le nom du groupe (ex : `hr-empl`) et nom le chemin complet (`\hr-empl`)
 	- Cliquer sur **Save**
-	![Pasted image 20260603222051](../../Images/Pasted%20image%2020260603222051.png)
+	![Pasted image 20260603222051](../../../Images/Pasted%20image%2020260603222051.png)
 
 ___
 ## Etape 3 : Création et Intégration du client/SP NextCloud
@@ -151,11 +151,11 @@ Dans cette étape nous allons intégrer l'authentification OIDC à NextCloud et 
 
 Suite à la configuration du SSO sur NextCloud, nous allons connecter nos deux utilisateurs `alice` et `bob`.
 
-![sso-nextcloud](Ressources/sso-nextcloud.webm)
+![sso-nextcloud](../Ressources/PoC/sso-nextcloud.webm)
 
 Si nous nous connectons en tant qu'Administrateur et allons dans **Accounts**, nous allons remarquer que les groupes des utilisateurs ont été **automatiquement** créé dans NextCloud avec le préfix `keycloak`:
 
-![Pasted image 20260605232824](../../Images/Pasted%20image%2020260605232824.png)
+![Pasted image 20260605232824](../../../Images/Pasted%20image%2020260605232824.png)
 
 Les utilisateurs connectés et les groupes créés,  nous pouvons passés maintenant à la création des dossiers partagés avec des droits d'accès.
 
@@ -192,7 +192,7 @@ Nous allons vérifier nos configurations sur les dossiers, nous attendons que se
 
 Nous allons nous connecter sur les comptes de **Bob** et d'**Alice** et vérifier le dossier auquel chacun a accès.
 
-![rbac-test](Ressources/rbac-test.webm)
+![rbac-test](../Ressources/PoC/rbac-test.webm)
 
 Nous observons là que nos configurations ont été validées ✅.
 
@@ -212,7 +212,7 @@ La vidéo ci-dessous montre :
 - La mise à jour de la liste des utilisateurs de NextCloud 
 
 
-![scenar-valid](Ressources/scenar-valid.webm)
+![scenar-valid](../Ressources/PoC/scenar-valid.webm)
 
 ___
 
