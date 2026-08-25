@@ -92,7 +92,7 @@ With administrative accounts created, we enforce restrictions to prevent Tier Ad
 
 Before applying the policies, a Tier 1 administrator account (`adm-eyawil-t1`) can successfully authenticate and log on to Tier 1 computer `NXG-WKS-FIN01` :
 
-<video src="../Ressources/PoC/before-denygpo.mp4" controls="controls" style="max-width: 100%;">
+<video src="https://ericyawilhit.netlify.app/videos/before-denygpo.mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -100,7 +100,7 @@ After linking the `Tier0-DenyLogon` GPO and running `gpupdate /force`, logon att
 
 ![Pasted image 20260824223753](../../../Images/Pasted%20image%2020260824223753.png)
 
-<video src="../Ressources/PoC/after-denygpo.mp4" controls="controls" style="max-width: 100%;">
+<video src="https://ericyawilhit.netlify.app/videos/after-denygpo.mp4">
   Your browser does not support the video tag.
 </video>
 
