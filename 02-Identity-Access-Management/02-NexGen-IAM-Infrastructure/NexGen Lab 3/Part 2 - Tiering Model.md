@@ -92,7 +92,7 @@ With administrative accounts created, we enforce restrictions to prevent Tier Ad
 
 Before applying the policies, a Tier 1 administrator account (`adm-eyawil-t1`) can successfully authenticate and log on to Tier 1 computer `NXG-WKS-FIN01` :
 
-![Before Denying](https://ericyawilhit.netlify.app/videos/before-denygpo.mp4)
+[Before Denying](https://ericyawilhit.netlify.app/videos/before-denygpo.mp4)
 
 After linking the `Tier0-DenyLogon` GPO and running `gpupdate /force`, logon attempts by `adm-eyawil-t1` to the Domain Controller are explicitly denied:
 
